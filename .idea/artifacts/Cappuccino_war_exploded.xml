@@ -10,6 +10,11 @@
         <element id="directory" name="lib">
           <element id="library" level="application" name="Spring-4.3.4.RELEASE" />
           <element id="library" level="project" name="Spring MVC-4.3.4.RELEASE" />
+          <element id="library" level="project" name="javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="commons-lang:commons-lang:2.6" />
+          <element id="library" level="project" name="org.apache.commons:commons-dbcp2:2.1.1" />
+          <element id="library" level="module" name="JUnit4" module-name="Cappuccino" />
+          <element id="library" level="project" name="Spring Security-3.2.5" />
         </element>
       </element>
     </root>
