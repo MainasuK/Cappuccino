@@ -4,6 +4,8 @@
   Date: 2016-11-30
   Time: 20:57
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -19,15 +21,34 @@
 </head>
 <body>
 
-<div>
-    <div class="card">
-        Left
-    </div>
-    <div class="card">
-        Right
+<c:set var="username" value="${username}" scope="session"/>
+<%@include file="component/navigation.jsp"%>
+
+<div class="container" style="margin-top: 24px">
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <div class="card-block">
+                <h4 class="card-title">前台收银</h4>
+                <a href="/cashier" class="btn btn-primary">进入</a>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <div class="card-block">
+                <h4 class="card-title">仓库管理</h4>
+                <a href="/warehouse" class="btn btn-primary">进入</a>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <div class="card-block">
+                <h4 class="card-title">员工管理</h4>
+                <a href="/dashboard" class="btn btn-primary">进入</a>
+            </div>
+        </div>
     </div>
 </div>
-
 
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
 <script src="/resources/bootstrap/js/bootstrap.min.js"></script>

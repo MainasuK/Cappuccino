@@ -1,11 +1,15 @@
 package cappuccino.config;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.Filter;
 
 /**
  * Created by MainasuK on 2016-12-16.
  */
 public class CappuccinoWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[] { RootConfig.class };
@@ -20,4 +24,5 @@ public class CappuccinoWebAppInitializer extends AbstractAnnotationConfigDispatc
     protected String[] getServletMappings() {
         return new String[] { "/" };
     }
+
 }
