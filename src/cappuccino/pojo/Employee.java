@@ -1,48 +1,60 @@
 package cappuccino.pojo;
 
-import cappuccino.misc.enums.GenderEnum;
-import cappuccino.misc.enums.PositionEnum;
+import com.sun.istack.internal.NotNull;
+import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Size;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 
 /**
  * Created by MainasuK on 2016-12-16.
  */
-public class Employee {
-    private String fullname;
-    private String username;
-    private String password;
-    private PositionEnum positionEnum;
-    private GenderEnum genderEnum;
-    private boolean isValid;
 
-    public Employee(String fullname, String username, String password, PositionEnum positionEnum, GenderEnum genderEnum, boolean isValid) {
-        this.fullname = fullname;
+public class Employee {
+
+    @NotNull
+    @Size(min = 1, max = 16)
+    private String fullName;
+
+    @NotNull
+    @Size(min = 5, max = 25)
+    private String username;
+
+    @NotNull
+    @Size(min = 5, max = 25)
+    private String password;
+
+    private String role;
+    private boolean enabled;
+
+    public Employee() { }
+
+    public Employee(String fullName, String username, String password, String role, boolean enabled) {
+        this.fullName = fullName;
         this.username = username;
         this.password = password;
-        this.positionEnum = positionEnum;
-        this.genderEnum = genderEnum;
-        this.isValid = isValid;
+        this.role = role;
+        this.enabled = enabled;
     }
 
     public Employee(ResultSet resultSet) throws SQLException {
         this(
-                resultSet.getString("fullname"),
+                resultSet.getString("full_name"),
                 resultSet.getString("username"),
                 resultSet.getString("password"),
-                PositionEnum.values()[resultSet.getInt("position")],
-                GenderEnum.values()[resultSet.getInt("gender")],
-                resultSet.getBoolean("isValid")
+                resultSet.getString("role"),
+                resultSet.getBoolean("enabled")
         );
     }
 
-    public String getFullname() {
-        return fullname;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getUsername() {
@@ -61,31 +73,35 @@ public class Employee {
         this.password = password;
     }
 
-    public PositionEnum getPositionEnum() {
-        return positionEnum;
+    public String getRole() {
+        return role;
     }
 
-    public void setPositionEnum(PositionEnum positionEnum) {
-        this.positionEnum = positionEnum;
+    public void setRole(String role) {
+        this.role = role;
     }
 
-    public GenderEnum getGenderEnum() {
-        return genderEnum;
+    public String getRolePlainString() {
+        if ("ROLE_ADMIN".equals(role)) {
+            return "管理员";
+        } else if ("ROLE_STOCK_KEEPER".equals(role)) {
+            return "理货员";
+        } else if ("ROLE_TELLER".equals(role)) {
+            return "收银员";
+        } else {
+            return "";
+        }
     }
 
-    public void setGenderEnum(GenderEnum genderEnum) {
-        this.genderEnum = genderEnum;
-    }
-
-    public boolean isValid() {
-        return isValid;
+    public boolean isEnabled() {
+        return enabled;
     }
 
     public String getValid() {
-        return isValid ? "有效" : "无效";
+        return enabled ? "有效" : "无效";
     }
 
-    public void setValid(boolean valid) {
-        isValid = valid;
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

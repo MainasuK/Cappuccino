@@ -1,36 +1,49 @@
 package cappuccino.pojo;
 
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-
 import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Created by MainasuK on 2016-12-16.
  */
 public class Commodity {
-    private Integer id;
+    private Integer commodityID;
     private String name;
     private BigDecimal price;
     private Integer storage;
+    private String barCode;
+    private Boolean enabled;
 
-    public Commodity(String name, BigDecimal price) {
-        this(null, name, price, null);
-    }
 
-    public Commodity(Integer id, String name, BigDecimal price, Integer storage) {
-        this.id = id;
+    public Commodity() { }
+
+    public Commodity(Integer commodityID, String name, BigDecimal price, Integer storage, String barCode, Boolean enabled) {
+        this.commodityID = commodityID;
         this.name = name;
         this.price = price;
         this.storage = storage;
+        this.barCode = barCode;
+        this.enabled = enabled;
     }
 
-    public Integer getId() {
-        return id;
+    public Commodity(ResultSet resultSet) throws SQLException {
+        this(
+                resultSet.getInt("commodity_id"),
+                resultSet.getString("name"),
+                resultSet.getBigDecimal("price"),
+                resultSet.getInt("storage"),
+                resultSet.getString("bar_code"),
+                resultSet.getBoolean("enabled")
+        );
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Integer getCommodityID() {
+        return commodityID;
+    }
+
+    public void setCommodityID(Integer commodityID) {
+        this.commodityID = commodityID;
     }
 
     public String getName() {
@@ -57,4 +70,19 @@ public class Commodity {
         this.storage = storage;
     }
 
+    public String getBarCode() {
+        return barCode;
+    }
+
+    public void setBarCode(String barCode) {
+        this.barCode = barCode;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 }

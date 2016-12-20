@@ -15,6 +15,8 @@
           <element id="library" level="project" name="org.apache.commons:commons-dbcp2:2.1.1" />
           <element id="library" level="module" name="JUnit4" module-name="Cappuccino" />
           <element id="library" level="project" name="Spring Security-3.2.5" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:6.0.5" />
+          <element id="library" level="project" name="javax.validation:validation-api:1.0.0.GA" />
         </element>
       </element>
     </root>

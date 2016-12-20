@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -24,6 +26,7 @@ public class DBConfig {
     ) {
         BasicDataSource dataSource = new BasicDataSource();
 
+        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl(url);    // Set timezone to China Standard Time
         dataSource.setDefaultQueryTimeout(10);  // wait 10s
         dataSource.setUsername(username);
@@ -37,6 +40,11 @@ public class DBConfig {
     @Bean
     public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
+    }
+
+    @Bean
+    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
     }
 
 }

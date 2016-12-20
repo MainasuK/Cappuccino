@@ -5,6 +5,7 @@
   Time: 20:57
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -20,25 +21,31 @@
 </head>
 <body>
 
+<c:set var="username" value="${username}" scope="session"/>
+<%@include file="component/navigation.jsp"%>
+
 <div class="container" style="margin-top: 24px">
-    <div class="col-lg-8"></div>
-    <div class="card col-lg-4">
-        <div class="card-block">
-            <h4 class="card-title" style="text-align: center">超市管理系统</h4>
-            <%--Controller will handle this action--%>
-            <form method="post">
-                <div class="form-group">
-                    <label>用户名</label>
-                    <input class="form-control" type="text" name="username">
-                </div>
-                <div class="form-group">
-                    <label>密码</label>
-                    <input class="form-control" type="password" name="password">
-                </div>
-                <div class="form-group">
-                    <input class="form-control btn btn-outline-primary" type="submit" value="登录">
-                </div>
-            </form>
+    <div class="card-group">
+        <div class="card">
+            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <div class="card-block">
+                <h4 class="card-title">前台收银</h4>
+                <a href="/cashier" class="btn btn-primary">进入</a>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <div class="card-block">
+                <h4 class="card-title">仓库管理</h4>
+                <a href="/warehouse" class="btn btn-primary">进入</a>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <div class="card-block">
+                <h4 class="card-title">员工管理</h4>
+                <a href="/dashboard" class="btn btn-primary">进入</a>
+            </div>
         </div>
     </div>
 </div>
