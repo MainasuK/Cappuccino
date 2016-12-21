@@ -1,9 +1,8 @@
 package cappuccino.config;
 
-import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Filter;
+import javax.servlet.ServletRegistration;
 
 /**
  * Created by MainasuK on 2016-12-16.
@@ -23,6 +22,11 @@ public class CappuccinoWebAppInitializer extends AbstractAnnotationConfigDispatc
     @Override
     protected String[] getServletMappings() {
         return new String[] { "/" };
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setInitParameter("throwExceptionIfNoHandlerFound", "true");
     }
 
 }
