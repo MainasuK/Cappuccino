@@ -1,4 +1,5 @@
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: MainasuK
@@ -39,6 +40,10 @@
                 <div class="form-group">
                     <input class="form-control btn btn-outline-primary" type="submit" value="登录">
                 </div>
+                <c:if test="${null != param.error}">
+                    <!-- Display error message -->
+                    <small style="color: red">用户名或密码错误</small>
+                </c:if>
             </sf:form>
         </div>
     </div>

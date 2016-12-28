@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                     .logoutSuccessUrl("/")
                 .and()
-                .exceptionHandling().accessDeniedPage("/403")
+                    .exceptionHandling().accessDeniedPage("/403")
                 .and()
                     .authorizeRequests()
                     .antMatchers("/dashboard").hasRole("ADMIN")
