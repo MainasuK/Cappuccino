@@ -1,3 +1,4 @@
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: MainasuK
@@ -13,18 +14,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>出错了</title>
+    <title>Document</title>
 
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 </head>
 <body>
 
-<%@include file="component/navigation.jsp"%>
+<%@include file="../component/navigation.jsp"%>
 
-<div style="text-align: center; margin-top: 22px">
-    <p>出错了，您访问的页面不存在</p>
-    <p><a href="/">返回首页</a></p>
+<div class="container" style="margin-top: 22px">
+    <sf:form action="/dashboard/addPhoto" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+            <input type="file" name="photo">
+        </div>
+        <div class="input-group">
+            <input type="submit" value="提交">
+        </div>
+    </sf:form>
 </div>
+
 
 <script src="/resources/jQuery/jquery-3.1.1.min.js"></script>
 <script src="/resources/bootstrap/js/bootstrap.min.js"></script>

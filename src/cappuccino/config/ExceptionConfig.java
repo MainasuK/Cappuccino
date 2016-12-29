@@ -20,17 +20,17 @@ import java.sql.SQLException;
 @ControllerAdvice
 public class ExceptionConfig {
 
-    @ExceptionHandler(value = { IOException.class , RuntimeException.class, SQLException.class})
+    @ExceptionHandler(value = { IOException.class , RuntimeException.class })
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ModelAndView exception(Exception exception, WebRequest request) {
-
+        exception.printStackTrace();
         return new ModelAndView("/error");
     }
 
     @ExceptionHandler(value = { NoHandlerFoundException.class })
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ModelAndView noMapping(Exception exception, WebRequest request) {
-
+        exception.printStackTrace();
         return new ModelAndView("/404");
     }
 

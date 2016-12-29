@@ -16,7 +16,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Document</title>
+    <title>管理</title>
 
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 </head>

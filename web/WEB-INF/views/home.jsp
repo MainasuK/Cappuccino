@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Document</title>
+    <title>主页</title>
 
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
 </head>
@@ -27,21 +27,21 @@
 <div class="container" style="margin-top: 24px">
     <div class="card-group">
         <div class="card">
-            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <img class="card-img-top img-fluid" src="/resources/img/cashier.jpg">
             <div class="card-block">
                 <h4 class="card-title">前台收银</h4>
                 <a href="/cashier" class="btn btn-primary">进入</a>
             </div>
         </div>
         <div class="card">
-            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <img class="card-img-top img-fluid" src="/resources/img/warehouse.jpg">
             <div class="card-block">
                 <h4 class="card-title">仓库管理</h4>
                 <a href="/warehouse" class="btn btn-primary">进入</a>
             </div>
         </div>
         <div class="card">
-            <img class="card-img-top" src="/resources/img/test.jpg" height="180px">
+            <img class="card-img-top img-fluid" src="/resources/img/dashboard.jpg">
             <div class="card-block">
                 <h4 class="card-title">员工管理</h4>
                 <a href="/dashboard" class="btn btn-primary">进入</a>
